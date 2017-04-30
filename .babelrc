@@ -1,0 +1,9 @@
+/*
+    ./.babelrc
+    this is for babel config
+*/
+{
+    "presets":[
+        "es2015", "react"
+    ]
+}
