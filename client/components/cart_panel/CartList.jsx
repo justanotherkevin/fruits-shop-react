@@ -6,6 +6,7 @@ export default class CartList extends React.Component {
     let renderCart = this.props.cart_collection.length == 0 ? [] : this.props.cart_collection.map( (item, i) => <EachCartItem {...item} key={i} />);
     return (
       <div className='cart_list'>
+        <div className='cart_title'>shopping cart</div>
         {renderCart}
       </div>
     )

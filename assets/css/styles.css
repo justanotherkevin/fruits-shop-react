@@ -50,3 +50,19 @@
   background-color: #34ca98;
   height: 100vh;
 }
+.cart_item {
+  display: flex;
+}
+.col_cart_left {
+  flex: 0 0 65%;
+}
+.col_cart_right {
+  flex: 1;
+  position: relative;
+}
+.cart_delete {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+}

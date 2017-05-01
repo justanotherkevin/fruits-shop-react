@@ -33,8 +33,22 @@ export default class App extends React.Component {
     );
   }
   addToCart(object) {
-    
-    this.state.cart_collection.push(object)
-    this.setState({cart_collection: this.state.cart_collection});
+    var cart_collection = this.state.cart_collection;
+    var inc = false;
+
+    for (var fruit in cart_collection) {
+      if (cart_collection[fruit].itemName == object.itemName) {
+        inc = true;
+      }
+    }
+
+    if (inc == true) {
+      cart_collection.find(fruit => fruit.itemName == object.itemName).quantityBuying += 1;
+    } else {
+      cart_collection.push(object);
+    }
+
+    // console.log(this.state.cart_collection);
+    this.setState({cart_collection: cart_collection});
   }
 }
