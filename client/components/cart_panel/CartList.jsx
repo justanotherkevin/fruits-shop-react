@@ -31,10 +31,16 @@ export default class CartList extends React.Component {
         <div className='sum_all_items'>
           <span>Total: ${total_sum}</span>
           <a onClick={this.props.empty_cart.bind(this)}>Empty Cart</a>
-          <button>Confirm Purchase</button>
+          <button className='confirm_btu' onClick={this.onConfirmPurchase.bind(this)}>Confirm Purchase</button>
         </div>
       </div>
     )
   }
-
+  onConfirmPurchase() {
+    if (this.props.cart_collection.length == 0) {
+      alert("Cart is empty")
+    } else {
+      this.props.finalize()
+    }
+  }
 }

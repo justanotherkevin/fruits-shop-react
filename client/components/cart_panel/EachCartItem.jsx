@@ -8,9 +8,9 @@ export default class EachCartItem extends React.Component {
       <div className='cart_item'>
         <div className='col_cart_left'>
           <img className="cart_img" src={item.imgSrc} />
-          <button onClick={this.onSubOneFromBuying.bind(this)}>-</button>
+          <button className='glyphicon glyphicon-minus' onClick={this.onSubOneFromBuying.bind(this)}></button>
           <span>{item.quantityBuying}</span>
-          <button onClick={this.onAddOneToBuying.bind(this)}>+</button>
+          <button className='glyphicon glyphicon-plus' onClick={this.onAddOneToBuying.bind(this)}></button>
           <span>@${item.price}each = ${total_price}</span>
         </div>
         <div className='col_cart_right'>
@@ -27,7 +27,7 @@ export default class EachCartItem extends React.Component {
   onAddOneToBuying() {
     var item = this.props;
     if (item.quantityBuying < item.quantityRemaining) {
-      this.props.add_one(this.props);
+      item.add_one(item);
     } else {
       alert("Can not go over amount in stock")
     }
@@ -37,7 +37,7 @@ export default class EachCartItem extends React.Component {
     if (item.quantityBuying == 1) {
       this.onDeleteFromCart()
     } else {
-      this.props.sub_one(this.props)
+      item.sub_one(item)
     }
   }
 }

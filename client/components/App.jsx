@@ -33,6 +33,7 @@ export default class App extends React.Component {
             empty_cart={this.emptyCart.bind(this)}
             add_one={this.addOneToBuying.bind(this)}
             sub_one={this.subOneToBuying.bind(this)}
+            finalize={this.confirmPurchase.bind(this)}
           />
         </section>
       </div>
@@ -41,6 +42,7 @@ export default class App extends React.Component {
   addToCart(object) {
     var cart_collection = this.state.cart_collection;
     var inc = false;
+    var out_of_stock = this.outOfStock(object);
 
     for (var fruit in cart_collection) {
       if (cart_collection[fruit].itemName == object.itemName) {
@@ -50,10 +52,12 @@ export default class App extends React.Component {
 
     if (inc == true) {
       this.addOneToBuying(object)
+    } else if (out_of_stock == true) {
+      alert('Out of stock!');
     } else {
       cart_collection.push(object);
+      this.setState({cart_collection: cart_collection});
     }
-    this.setState({cart_collection: cart_collection});
   }
   deleteFromCart(obj) {
     var cart_collection = this.state.cart_collection;
@@ -73,8 +77,13 @@ export default class App extends React.Component {
   }
   addOneToBuying(obj) {
     var cart_collection = this.state.cart_collection;
-    console.log(obj);
-    cart_collection.find(fruit => fruit.itemName == obj.itemName).quantityBuying += 1;
+    var fruit_from_cart = cart_collection.find(fruit => fruit.itemName == obj.itemName)
+
+    if (fruit_from_cart.quantityBuying >= fruit_from_cart.quantityRemaining) {
+      alert("Can not go over amount in stock")
+    } else {
+      fruit_from_cart.quantityBuying += 1
+    }
     this.setState({cart_collection: cart_collection});
   }
   subOneToBuying(obj) {
@@ -83,6 +92,19 @@ export default class App extends React.Component {
     this.setState({cart_collection: cart_collection});
   }
   confirmPurchase() {
-    console.log("here");
+    var fruits_collection = this.state.fruits_collection;
+    var cart_collection = this.state.cart_collection;
+
+    for (var each_cart in cart_collection) {
+      fruits_collection.find(each_fruit => each_fruit.itemName == cart_collection[each_cart].itemName).quantityRemaining -= cart_collection[each_cart].quantityBuying;
+    }
+    this.emptyCart()
+    this.setState({fruits_collection: fruits_collection});
+  }
+  outOfStock(obj) {
+    var fruits_collection = this.state.fruits_collection;
+    return (
+      fruits_collection.find(fruit => fruit.itemName == obj.itemName).quantityRemaining <= 0 ? true : false
+    );
   }
 }
