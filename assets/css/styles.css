@@ -5,7 +5,6 @@
 .nav-tabs {
   border-bottom: 7px solid #34ca98;
 }
-
 .nav-tabs>li {
   float: left;
   text-align: center;
@@ -25,9 +24,48 @@
   cursor: pointer;
   background-color: #34ca98;
   border: none;
-  padding: none;
+  padding: 0;
+}
+
+.main {
+  display: flex;
+}
+.glyphicon {
+    display: inline-block;
+    line-height: .5;
+    -webkit-font-smoothing: antialiased;
+    margin: 0 3px;
+    background-color:
+  }
+
+/*buttons*/
+button {
+  transition: all 0.5s ease;
+  border-radius: 5px;
+}
+.collection_btu {
+  background-color: #34ca98;
+}
+.collection_btu:hover {
+  background-color: #5cb86c;
+}
+.confirm_btu {
+  background-color: rgb(186, 245, 225);
+  color: #333;
+  font-weight: bold;
+  padding: 3px 16px;
+}
+.confirm_btu:hover {
+  background-color: #f0ad4e;
+}
+.add_sub_btu {
+
 }
 /*fruits panel */
+.fruits_panel{
+    margin-left: 50px;
+    padding: 0px 5px;
+}
 .each_fruit {
   width: 200px;
   height: 230px;
@@ -37,16 +75,80 @@
   position: relative;
   float: left;
   padding: 14px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
 }
 .fruit_name {
   text-transform:capitalize;
+  max-height: 25px;
+  overflow-y: hidden;
 }
+.fruit_name:hover {
+  overflow-y: scroll;
+  border: 1px solid #5bc0de;
+}
+
 .fruit_img {
-    max-width: 100%;
-    max-height: 130px;
+  height: 135px;
+  max-width: 90%;
+  margin: 0 auto;
 }
+
 /*cart panel*/
 .cart_panel {
   background-color: #34ca98;
   height: 100vh;
+  min-width: 275px;
+  margin-right: 8%;
+}
+.cart_list {
+    text-align: center;
+    color: white;
+}
+.cart_title {
+    font-size: 25px;
+    text-transform: capitalize;
+}
+.sum_all_items {
+  text-align: right;
+  display: inline-grid;
+  float: right;
+  margin-right: 10px;
+  color: white;
+}
+.sum_all_items > span {
+  font-weight: bold;
+}
+.sum_all_items > a {
+  color: white;
+  font-size: 10px;
+  margin-bottom: 10px;
+}
+.cart_item {
+  color: #333;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.50);
+  margin: 5px 0 15px 0;
+  padding-bottom: 5px;
+}
+.cart_img {
+  max-height: 80px;
+  max-width: 95px;
+  mix-blend-mode: multiply;
+}
+
+.col_cart_left {
+  flex: 0 0 65%;
+}
+.col_cart_right {
+  flex: 1;
+  position: relative;
+}
+.cart_delete {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  cursor: pointer;
 }

@@ -7,7 +7,7 @@ export default class EachFruit extends React.Component {
                     <img className="fruit_img" src={this.props.imgSrc} />
                     <div className="fruit_name">{this.props.itemName}</div>
                     <div className="fruit_price">${this.props.price} <span className="fruit_remaining">{this.props.quantityRemaining} In Stock</span></div>
-                    <button onClick={this.onAddToCart.bind(this)}>add to cart</button>
+                    <button className='collection_btu' onClick={this.onAddToCart.bind(this)}>Add to Cart</button>
 
             </div>
         );
