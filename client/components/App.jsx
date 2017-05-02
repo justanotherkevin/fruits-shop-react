@@ -27,7 +27,7 @@ export default class App extends React.Component {
           />
         </section>
         <section className="cart_panel col_cart_right">
-          <CartList cart_collection={this.state.cart_collection} />
+          <CartList cart_collection={this.state.cart_collection} delete_from_cart={this.deleteFromCart.bind(this)}/>
         </section>
       </div>
     );
@@ -47,8 +47,13 @@ export default class App extends React.Component {
     } else {
       cart_collection.push(object);
     }
-
-    // console.log(this.state.cart_collection);
+    this.setState({cart_collection: cart_collection});
+  }
+  deleteFromCart(obj) {
+    var cart_collection = this.state.cart_collection;
+    cart_collection = cart_collection.filter(function(desireObject) {
+      return desireObject.itemName !== obj.itemName
+    })
     this.setState({cart_collection: cart_collection});
   }
 }
