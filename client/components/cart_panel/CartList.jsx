@@ -12,7 +12,13 @@ export default class CartList extends React.Component {
       return total += num;
     }) : 0;
     var item_or_items = cart_collection.length > 1 ? 'items' : 'item'
-    var renderCart = cart_collection.length == 0 ? [] : cart_collection.map( (item, i) => <EachCartItem {...item} key={i} delete_from_cart={this.props.delete_from_cart.bind(this)}/>);
+    var renderCart = cart_collection.length == 0 ? [] : cart_collection.map( (item, i) => <EachCartItem
+      key={i}
+      {...item}
+      delete_from_cart={this.props.delete_from_cart.bind(this)}
+      add_one={this.props.add_one.bind(this)}
+      sub_one={this.props.sub_one.bind(this)}
+    />);
 
     return (
       <div className='cart_list'>
@@ -24,7 +30,7 @@ export default class CartList extends React.Component {
         <span className='line_spacing'></span>
         <div className='sum_all_items'>
           <span>Total: ${total_sum}</span>
-          <a>Empty Cart</a>
+          <a onClick={this.props.empty_cart.bind(this)}>Empty Cart</a>
           <button>Confirm Purchase</button>
         </div>
       </div>

@@ -27,7 +27,13 @@ export default class App extends React.Component {
           />
         </section>
         <section className="cart_panel col_cart_right">
-          <CartList cart_collection={this.state.cart_collection} delete_from_cart={this.deleteFromCart.bind(this)}/>
+          <CartList
+            cart_collection={this.state.cart_collection}
+            delete_from_cart={this.deleteFromCart.bind(this)}
+            empty_cart={this.emptyCart.bind(this)}
+            add_one={this.addOneToBuying.bind(this)}
+            sub_one={this.subOneToBuying.bind(this)}
+          />
         </section>
       </div>
     );
@@ -43,7 +49,7 @@ export default class App extends React.Component {
     }
 
     if (inc == true) {
-      cart_collection.find(fruit => fruit.itemName == object.itemName).quantityBuying += 1;
+      this.addOneToBuying(object)
     } else {
       cart_collection.push(object);
     }
@@ -55,5 +61,28 @@ export default class App extends React.Component {
       return desireObject.itemName !== obj.itemName
     })
     this.setState({cart_collection: cart_collection});
+  }
+  emptyCart() {
+    var cart_collection = this.state.cart_collection;
+    if (cart_collection.length > 0) {
+      cart_collection = [];
+      this.setState({cart_collection: cart_collection});
+    } else {
+      alert("Cart is empty")
+    }
+  }
+  addOneToBuying(obj) {
+    var cart_collection = this.state.cart_collection;
+    console.log(obj);
+    cart_collection.find(fruit => fruit.itemName == obj.itemName).quantityBuying += 1;
+    this.setState({cart_collection: cart_collection});
+  }
+  subOneToBuying(obj) {
+    var cart_collection = this.state.cart_collection;
+    cart_collection.find(fruit => fruit.itemName == obj.itemName).quantityBuying -= 1;
+    this.setState({cart_collection: cart_collection});
+  }
+  confirmPurchase() {
+    console.log("here");
   }
 }
