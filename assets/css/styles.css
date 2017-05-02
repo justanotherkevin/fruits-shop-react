@@ -27,6 +27,10 @@
   border: none;
   padding: none;
 }
+
+.main {
+  display: flex;
+}
 /*fruits panel */
 .each_fruit {
   width: 200px;
@@ -49,10 +53,39 @@
 .cart_panel {
   background-color: #34ca98;
   height: 100vh;
+  min-width: 275px;
+  margin-right: 8%;
+}
+.cart_list {
+    text-align: center;
+    color: white;
+}
+.cart_title {
+    font-size: 25px;
+    text-transform: capitalize;
+}
+.sum_all_items {
+    text-align: right;
+    display: inline-grid;
+    float: right;
+    margin-right: 10px;
+}
+.line_spacing {
+  
 }
 .cart_item {
+  color: #333;
   display: flex;
+  background-color: rgba(255, 255, 255, 0.50);
+  margin: 5px 0 15px 0;
+  padding-bottom: 5px;
 }
+.cart_img {
+  max-height: 80px;
+  max-width: 100px;
+  mix-blend-mode: multiply;
+}
+
 .col_cart_left {
   flex: 0 0 65%;
 }
@@ -63,6 +96,6 @@
 .cart_delete {
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: 10px;
   cursor: pointer;
 }

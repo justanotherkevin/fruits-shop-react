@@ -19,14 +19,14 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className="row">
-        <section className="fruits_panel col-md-8">
+      <div className="main row">
+        <section className="fruits_panel col_cart_left">
           <FruitsList
             fruits_collection={this.state.fruits_collection}
             add_to_cart={this.addToCart.bind(this)}
           />
         </section>
-        <section className="cart_panel col-md-4">
+        <section className="cart_panel col_cart_right">
           <CartList cart_collection={this.state.cart_collection} />
         </section>
       </div>
