@@ -19,7 +19,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className="main row">
+      <div className="main">
         <section className="fruits_panel col_cart_left">
           <FruitsList
             fruits_collection={this.state.fruits_collection}

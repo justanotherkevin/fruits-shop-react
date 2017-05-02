@@ -11,6 +11,7 @@ export default class EachCartItem extends React.Component {
           <button className='glyphicon glyphicon-minus' onClick={this.onSubOneFromBuying.bind(this)}></button>
           <span>{item.quantityBuying}</span>
           <button className='glyphicon glyphicon-plus' onClick={this.onAddOneToBuying.bind(this)}></button>
+          <br></br>
           <span>@${item.price}each = ${total_price}</span>
         </div>
         <div className='col_cart_right'>

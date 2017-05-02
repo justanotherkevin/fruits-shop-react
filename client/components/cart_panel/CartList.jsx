@@ -24,12 +24,14 @@ export default class CartList extends React.Component {
       <div className='cart_list'>
         <h3 className='cart_title'>shopping cart</h3>
         <span>{cart_collection.length} {item_or_items}</span>
-        {renderCart}
+        <div className="cart_items">
+          {renderCart}
+        </div>
 
         <hr></hr>
         <span className='line_spacing'></span>
         <div className='sum_all_items'>
-          <span>Total: ${total_sum}</span>
+          <span>Total: ${Math.round(total_sum *100)/100}</span>
           <a onClick={this.props.empty_cart.bind(this)}>Empty Cart</a>
           <button className='confirm_btu' onClick={this.onConfirmPurchase.bind(this)}>Confirm Purchase</button>
         </div>
