@@ -1,4 +1,4 @@
-![alt text](https://github.com/polymer940c/fruits-shop-react/assets/pictures/demo.gif "Logo Title Text 1")  
+![alt text](https://github.com/polymer940c/fruits-shop-react/blob/master/assets/pictures/demo.gif "Logo Title Text 1")  
 
 Description:  
   Create a single page application showcasing your new online store! Feel free to use any framework / libraries
