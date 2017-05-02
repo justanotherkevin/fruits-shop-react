@@ -1,4 +1,5 @@
-![alt text](https://github.com/polymer940c/MapYourStocks/blob/master/src/ezgif-2-139f0ad163.gif "Logo Title Text 1") 
+![alt text](https://github.com/polymer940c/fruits-shop-react/assets/pictures/2017-05-02 04_46_51.gif "Logo Title Text 1")  
+
 Description:
   Create a single page application showcasing your new online store! Feel free to use any framework / libraries
   that you are confident in. Or, if that's not your thing, vanilla JS will do as well ;). You will find the list
