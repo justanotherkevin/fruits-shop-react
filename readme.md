@@ -1,7 +1,7 @@
-# Demo  
+### Demo  
 ![alt text](https://github.com/polymer940c/fruits-shop-react/blob/master/assets/pictures/demo.gif "Logo Title Text 1")  
 
-Description:  
+### Description:  
   Using wirefram to create Node application with React front-end. 
   Items are found in the "store_items.json". Each item show the name, image, price, and quantity remaining. 
   
