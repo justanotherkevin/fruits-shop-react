@@ -1,3 +1,4 @@
+*Demo  
 ![alt text](https://github.com/polymer940c/fruits-shop-react/blob/master/assets/pictures/demo.gif "Logo Title Text 1")  
 
 Description:  
