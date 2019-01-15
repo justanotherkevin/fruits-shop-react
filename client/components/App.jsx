@@ -43,7 +43,7 @@ export default class App extends React.Component {
     var cart_collection = this.state.cart_collection;
     var inc = false;
     var out_of_stock = this.outOfStock(object);
-
+    
     for (var fruit in cart_collection) {
       if (cart_collection[fruit].itemName == object.itemName) {
         inc = true;
